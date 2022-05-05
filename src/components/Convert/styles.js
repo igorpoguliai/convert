@@ -7,7 +7,6 @@ export const Container = styled.div`
 `;
 
 export const BlockConvert = styled.div`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -17,9 +16,18 @@ export const BlockConvert = styled.div`
     grid-row-gap: 20px;
   }
 
-  svg {
-    fill: var(--accent-color);
-    cursor: pointer;
+  @media (max-width: 575px) {
+    select,
+    input {
+      max-width: 170px;
+    }
+  }
+
+  @media (max-width: 374px) {
+    select,
+    input {
+      max-width: 155px;
+    }
   }
 `;
 
@@ -30,4 +38,27 @@ export const Title = styled.h1`
   color: #98aac9;
   text-align: center;
   padding: 40px;
+
+  @media (max-width: 575px) {
+    font-size: 35px;
+  }
+`;
+
+export const ButtonReverse = styled.button`
+  cursor: pointer;
+  background: none;
+
+  svg {
+    fill: var(--accent-color);
+
+    @media (max-width: 575px) {
+      width: 30px;
+      height: 30px;
+    }
+
+    @media (max-width: 374px) {
+      width: 25px;
+      height: 25px;
+    }
+  }
 `;

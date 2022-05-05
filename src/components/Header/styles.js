@@ -10,6 +10,7 @@ export const StylesHeader = styled.header`
   border-bottom: 2px solid #98aac9;
   font-size: 19px;
   line-height: 24px;
+  white-space: nowrap;
 
   div {
     padding: 15px;

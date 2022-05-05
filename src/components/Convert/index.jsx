@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ReactComponent as ReverseIcon } from "../../assets/icons/reverse.svg";
-import { BlockConvert, Container, Title } from "./styles";
+import { BlockConvert, ButtonReverse, Container, Title } from "./styles";
 import { getCurrency } from "../../api/api";
 import ItemConvert from "./ItemConvert";
 import Loader from "../../common/Loader";
@@ -63,7 +63,13 @@ export default function Convert() {
           inputValue={firstInputValue}
           onInputChange={onFirstInputChange}
         />
-        {loading ? <Loader /> : <ReverseIcon onClick={onReverseClick} />}
+        {loading ? (
+          <Loader />
+        ) : (
+          <ButtonReverse onClick={onReverseClick}>
+            <ReverseIcon />
+          </ButtonReverse>
+        )}
         <ItemConvert
           options={currencies.filter((item) => item !== firstSelectValue)}
           value={secondSelectValue}

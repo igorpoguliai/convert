@@ -7,6 +7,15 @@ export const Wrapper = styled.div`
 export const Spinner = styled.div`
   color: var(--accent-color);
   font-size: 35px;
+
+  @media (max-width: 575px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 374px) {
+    font-size: 25px;
+  }
+
   overflow: hidden;
   width: 1em;
   height: 1em;

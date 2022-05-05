@@ -1,12 +1,26 @@
+import { useEffect, useState } from "react";
+import { getCurrencies } from "../../api/api";
 import { StylesHeader } from "./styles";
 import { getFormatedCurrency } from "../../utils/helpers";
 import Loader from "../../common/Loader";
-import PropTypes from "prop-types";
 
-function Header({ currencies, isLoading }) {
+export default function Header() {
+  const [currencies, setCurrencies] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    getCurrencies()
+      .then((data) => {
+        setCurrencies(data);
+        setLoading(false);
+      })
+      .catch((err) => alert(err));
+  }, []);
+
   return (
-    <StylesHeader isLoading={isLoading}>
-      {isLoading ? (
+    <StylesHeader isLoading={loading}>
+      {loading ? (
         <Loader />
       ) : (
         Object.keys(currencies).map((key) => (
@@ -18,13 +32,3 @@ function Header({ currencies, isLoading }) {
     </StylesHeader>
   );
 }
-
-Header.propTypes = {
-  currencies: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.arrayOf(PropTypes.string),
-  ]).isRequired,
-  isLoading: PropTypes.bool,
-};
-
-export default Header;

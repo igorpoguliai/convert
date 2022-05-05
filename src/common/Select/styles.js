@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
     fill: #9aa0a6;
     transition: transform 0.2s ease;
   }
+
   ${({ isOpen }) =>
     isOpen &&
     css`
@@ -24,7 +25,7 @@ export const Wrapper = styled.div`
 `;
 
 export const SelectStyled = styled.select`
-  width: 200px;
+  max-width: 200px;
   height: 36px;
   border-radius: 4px;
   padding: 6px 30px 6px 12px;
@@ -32,6 +33,7 @@ export const SelectStyled = styled.select`
   text-overflow: ellipsis;
   appearance: none;
   cursor: pointer;
+
   &:focus {
     outline: 0;
     border: 1px solid var(--accent-color);
