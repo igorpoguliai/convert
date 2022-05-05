@@ -1,6 +1,6 @@
 Currency Converter app.
 
-Demo - http://192.168.0.103:3000
+Demo - https://igor-poguliai-convert.surge.sh/
 
 Used technologies:
 -styled-components; 
