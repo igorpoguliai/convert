@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { SelectWrapper, SelectStyled, Wrapper } from "./styles";
 import PropTypes from "prop-types";
+import { useClickOutside } from "../../hooks/useClickOutside";
 
 function Select({ Icon, options, value, onChange }) {
   const [isOpen, setIsOpen] = useState(false);
+  const ref = useClickOutside(() => {
+    setIsOpen(false);
+  });
 
   function handleSelectClick() {
     setIsOpen((prevState) => !prevState);
@@ -15,6 +19,7 @@ function Select({ Icon, options, value, onChange }) {
         value={value}
         onChange={onChange}
         onClick={handleSelectClick}
+        ref={ref}
       >
         {options.map((option) => (
           <option value={option} key={option}>
